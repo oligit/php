@@ -1,0 +1,36 @@
+
+header{
+	width: 100%;
+}
+h1{
+	width: auto;
+	background-color: rgba(7, 68, 230, 0.62);
+	text-align: center;
+	border-radius: 15px;
+	font-family: calibri;
+}
+.main{
+	width: 100%;
+}
+.form-inside{
+	width: 100%;
+}
+.margin-0-auto{
+	width: 50%;
+	margin: 0 auto !important;
+}
+form{
+	width: 80%;
+	margin: 0 auto;
+}
+form input, form select{
+	width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding-bottom: 1px;
+}
+.border-gold{
+    border: 2px solid rgba(175, 161, 73, 0.9);
+    padding: 1%;
+    border-radius: 15px 0px;
+}
