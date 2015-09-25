@@ -34,3 +34,16 @@ form input, form select{
     padding: 1%;
     border-radius: 15px 0px;
 }
+@media (min-width: 720px) {
+	form{
+		width: 100%;
+		margin: 0 auto;
+	}
+	.border-gold{
+		width: 100%;
+    	border: 2px solid rgba(175, 161, 73, 0.9);
+    	padding: 1%;
+    	border-radius: 15px 0px;
+    	box-sizing: border-box;
+	}
+}

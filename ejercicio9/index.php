@@ -11,9 +11,12 @@
 				// echo "La capital de $country es $capi";
 				$salida = "La capital de $country es $capi";
 				break;
+			}else{
+				$salida = "Has fallado paleto";
 			}
 		}
 	}
+	
  ?>
 <!DOCTYPE html>
 <html>

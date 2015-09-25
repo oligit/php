@@ -1,47 +1,9 @@
 <?php
-const EJERCICIO = 'Ejercicio 7b';
-function factorial($x){
-		if ($x == 0) return 1;
-		else {
-			$x = $x * factorial($x) - 1;
-			return $x;
-		}
-	}
-function calculadora(){
-		
-	$html = '';
-	
-	if ($_POST["num1"] != '' && $_POST["estado"] == 1){
-		$num1 = $_POST["num1"];
-		$num2 = $_POST["num2"];
-		switch ($_POST["operacion"]){
-			case 'suma':
-				$html = $num1 + $num2;
-				break;
-			case 'resta':
-				$html = $num1 - $num2;
-				break;
-			case 'multiplicacion':
-				$html = $num1 * $num2;
-				break;
-			case 'division':
-				$html = $num1 / $num2;
-				break;
-			case 'potencia':
-				$html = $num1 ** $num2;
-				break;
-			case 'factorial':
-				$html = factorial($num1);
-				break;
-			default:
-				$html = 'algo has hecho mal, máquina';
-				break;
-		}
-		return $html;
-	}
+const EJERCICIO = 'Ejercicio 10 a';
+require_once('Calculadora.php');
+function load(){
 	
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -55,10 +17,13 @@ function calculadora(){
 		window.onload = main;
 		function main() {
 			var op = document.getElementById('select');
+			var num1 = document.getElementById('num1');
 			var num2 = document.getElementById('num2');
 			op.addEventListener('click', borraSi, false);
 			function borraSi(){
 				if (op.value == 'factorial'){
+					num1.innerHTML = 'El factorial no funsiona tt pta bida';
+					num1.disabled = true;
 					num2.disabled = true;
 				};
 			};	
@@ -78,7 +43,7 @@ function calculadora(){
 				<br>
 				<form action="index.php" method="post">
 					<div class="margin-0-auto border-gold">
-						<input type="number" name="num1" min="0">
+						<input type="number" name="num1" min="0" id="num1">
 						<select name="operacion" id="select">
 							<option value="suma">+</option>
 							<option value="resta">-</option>
