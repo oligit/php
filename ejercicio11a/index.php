@@ -2,36 +2,41 @@
 const EJERCICIO = 'Ejercicio 10 a';
 require_once('Calculadora.php');
 
-function calculadora(){
-		
+function dale(){
+	$salida = ($_POST["num1"] != '' && $_POST["estado"] == 1) ? true : false ;
+	return $salida;
+}
+
+function calculadora()
+{
 	$html = '';
 	
-	if ($_POST["num1"] != '' && $_POST["estado"] == 1){
+	if (dale()){
 		$num1 = $_POST["num1"];
 		$num2 = $_POST["num2"];
 		$calculadora = new Calculadora($num1, $num2);
 		switch ($_POST["operacion"]){
 			case 'suma':
-				$html = $calculadora->sumar();
+				$html = $calculadora.sumar();
 				break;
 			case 'resta':
-				$html = $calculadora->restar();
+				$html = $calculadora.restar();
 				
 				break;
 			case 'multiplicacion':
-				$html = $calculadora->multiplicar();
+				$html = $calculadora.multiplicar();
 				
 				break;
 			case 'division':
-				$html = $calculadora->dividir();
+				$html = $calculadora.dividir();
 				
 				break;
 			case 'potencia':
-				$html = $calculadora->potencia();				
-				break;/*
+				$html = $calculadora.potencia();				
+				break;
 			case 'factorial':
 				$html = factorial($num1);
-				break;*/
+				break;
 			default:
 				$html = 'algo has hecho mal, máquina';
 				break;
@@ -93,7 +98,7 @@ function calculadora(){
 						<input type="submit" name="enviar" value="=">
 					</div>
 				</form>
-				<label for="resultado"></label><p><?php echo calculadora();?></p>
+				<label for="resultado"></label><p><?php if (dale()) echo calculadora();?></p>
 			</div>
 		</div>
 	

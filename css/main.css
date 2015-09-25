@@ -34,7 +34,7 @@ form input, form select{
     padding: 1%;
     border-radius: 15px 0px;
 }
-@media (min-width: 720px) {
+/*@media (min-width: 720px) {
 	form{
 		width: 100%;
 		margin: 0 auto;
@@ -46,4 +46,4 @@ form input, form select{
     	border-radius: 15px 0px;
     	box-sizing: border-box;
 	}
-}
+}*/
