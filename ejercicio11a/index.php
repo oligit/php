@@ -1,25 +1,23 @@
 <?php
 const EJERCICIO = 'Ejercicio 11 a';
-require_once('Calculadora.php');
+include 'Calculadora.php';
 
 function dale(){
 	$salida = ($_POST["num1"] != '' && $_POST["estado"] == 1) ? true : false ;
 	return $salida;
 }
-
-function calculadora()
+function calcular()
 {
 	$html = '';
-	
 	if (dale()){
 		$num1 = $_POST["num1"];
 		$num2 = $_POST["num2"];
 		$calculadora = new Calculadora($num1, $num2);
 		$html = $calculadora->calcular($_POST["operacion"]);
-		return $html;
 	}
-	
+	return $html;
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -38,11 +36,12 @@ function calculadora()
 			op.addEventListener('click', borraSi, false);
 			function borraSi(){
 				if (op.value == 'factorial'){
-					num1.innerHTML = 'El factorial no funsiona tt pta bida';
+					console.dir(num2);
 					num1.disabled = true;
 					num2.disabled = true;
+					num1.innerHTML = 'El factorial no funsiona tt pta bida';
 				};
-			};	
+			};
 		};
 	</script>
 </head>
@@ -61,10 +60,10 @@ function calculadora()
 					<div class="margin-0-auto border-gold">
 						<input type="number" name="num1" min="0" id="num1">
 						<select name="operacion" id="select">
-							<option value="suma">+</option>
-							<option value="resta">-</option>
-							<option value="multiplicacion">*</option>
-							<option value="division">/</option>
+							<option value="sumar">+</option>
+							<option value="restar">-</option>
+							<option value="multiplicar">*</option>
+							<option value="dividir">/</option>
 							<option value="potencia">^</option>
 							<option value="factorial">!</option>
 						</select>
@@ -73,7 +72,7 @@ function calculadora()
 						<input type="submit" name="enviar" value="=">
 					</div>
 				</form>
-				<label for="resultado"></label><p><?php if (dale()){echo calculadora();} ?></p>
+				<label for="resultado"></label><p><?php echo calcular(); ?></p>
 			</div>
 		</div>
 	

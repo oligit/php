@@ -10,7 +10,6 @@
 		private $_operacion;
 		private $_mensaje;
 		private $_errores;
-		
 		function __construct($num1, $num2)
 		{
 			$this->_num1 = $num1;
@@ -20,19 +19,17 @@
 		}
 		private function validarOperacion()
 		{
-			// if (is_numeric($this->_num1) && is_numeric($this->_num2) && $this->_num2 !=0) {
-			// 		return true;
-			// }else{
-			// 	return false;
-			// }
+			// echo "entra en validarOperacion";
 			$salida = (is_numeric($this->_num1) && is_numeric($this->_num2) && $this->_num2 !=0) ? true : false;
 			return $salida;
 		}
 
 		private function sumar()
 		{
-			if (validarOperacion()) {
+			// echo "entra en suma";
+			if ($this->validarOperacion()) {
 				return $this->_num1 + $this->_num2;
+				// echo "suma de verdad";
 			}else{
 				return $this->_errores[0];
 			}
@@ -40,26 +37,71 @@
 
 		private function restar()
 		{
-			if (validarOperacion()) {
+			if ($this->validarOperacion()) {
 				return $this->_num1 - $this->_num2;
 			}else{
 				return $this->_errores[0];
 			}
+		}
+		private function multiplicar()
+		{
+			if ($this->validarOperacion()) {
+				return $this->_num1 * $this->_num2;
+			}else{
+				return $this->_errores[0];
+			}
+		}
+		private function dividir()
+		{
+			if ($this->validarOperacion()) {
+				return $this->_num1 / $this->_num2;
+			}else{
+				return $this->_errores[0];
+			}
+		}
+		private function potencia()
+		{
+			if ($this->validarOperacion()) {
+				return $this->_num1 ** $this->_num2;
+			}else{
+				return $this->_errores[0];
+			}
+		}
+		private function factorial()
+		{
+			
+		}
+		private function deff()
+		{
+			return "Qué ases nano vas to loco xDD";
 		}
 		public function calcular($op)
 				{
 					switch ($op) {
 						case 'sumar':
 							# code...
+							// echo "entra en la suma";
 							return $this->sumar();
 							break;
 						case 'restar':
 							# code...
 							return $this->restar(); 
 							break;
-						
+						case 'multiplicar':
+							# code...
+							return $this->multiplicar(); 
+							break;
+						case 'dividir':
+							# code...
+							return $this->dividir(); 
+							break;
+						case 'potencia':
+							# code...
+							return $this->potencia(); 
+							break;
 						default:
 							# code...
+							return $this->deff();
 							break;
 					}
 				}		
